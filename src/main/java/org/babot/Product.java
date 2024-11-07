@@ -1,6 +1,6 @@
 package org.babot;
 
-public class Product {
+public abstract class Product {
   private int productId;
   private String productName;
   private double productPrice;
@@ -9,6 +9,10 @@ public class Product {
         this.productId = productId;
         this.productName = productName;
         this.productPrice = productPrice;
+    }
+
+    public Product() {
+
     }
 
     public int getProductId() {
@@ -43,4 +47,7 @@ public class Product {
                 ", productPrice=" + productPrice +
                 '}';
     }
+
+    // Sobrescribimos getFinalPrice() para devolver el precio con descuento
+    public abstract double getFinalPrice();
 }
