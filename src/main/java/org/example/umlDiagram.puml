@@ -1,0 +1,44 @@
+@startuml
+class Product {
+    - name: String
+    - price: double
+    + getName(): String
+    + getPrice(): double
+}
+
+class FreeProduct {
+    + FreeProduct(name: String)
+    + getPrice(): double
+}
+
+class FoodProduct {
+    - discount: double
+    + FoodProduct(name: String, price: double)
+    + setDiscount(discount: double): void
+    + getPrice(): double
+}
+
+class Book {
+    - author: String
+    - description: String
+    - discount: double
+    + Book(name: String, price: double, author: String, description: String)
+    + setDiscount(discount: double): void
+    + getPrice(): double
+    + getAuthor(): String
+    + getDescription(): String
+}
+
+class Cart {
+    - products: List<Product>
+    + addProduct(product: Product): void
+    + removeProductByName(name: String): void
+    + getProducts(): List<Product>
+    + getTotalCost(): double
+}
+
+Product <|-- FreeProduct
+Product <|-- FoodProduct
+Product <|-- Book
+Cart "1" *-- "0..*" Product
+@enduml
